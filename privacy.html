@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Policy – Chat Copier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheet.css">
+  <style>
+    /* minimal page-width and spacing */
+    body { max-width: 900px; margin: 2rem auto; line-height: 1.6; }
+    h1, h2 { color:#1f2937; margin-top: 1.8rem; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; }
+    th, td{ border:1px solid #d0d5dd; padding:.5rem; text-align:left; }
+    footer { margin:2rem 0 1rem; font-size:14px; color:#4b5563; }
+  </style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p><em>Last updated: 8 June 2025</em></p>
+
+<h2>1. Introduction</h2>
+<p>
+Chat Copier (“<strong>the Extension</strong>”, “<strong>we</strong>”) is a Chrome side-panel tool that lets you copy conversations from ChatGPT, Claude, and Perplexity, optionally summarise them with Google Gemini, and paste them back into any active tab.  
+We respect your privacy: the Extension runs entirely in your browser and never transmits personal or sensitive data to us or to third parties.
+</p>
+
+<h2>2. What information do we handle?</h2>
+
+<table>
+<thead><tr><th>Data</th><th>Source&nbsp;/ Storage</th><th>Purpose</th><th>Retention</th></tr></thead>
+<tbody>
+<tr><td>Conversation text you copy</td><td>Extracted from the visible page; stored only in side-panel preview and (optionally) your clipboard</td><td>Allows copy → preview → paste workflow</td><td>Cleared when you press <em>Clear</em>, close the panel, or quit Chrome</td></tr>
+<tr><td>Gemini API key &amp; default model (optional)</td><td>Entered by you; saved in <code>chrome.storage.sync</code></td><td>Needed for Google Gemini calls when you press <em>Summarise + Paste</em></td><td>Until you delete or overwrite the key in Settings</td></tr>
+<tr><td>Remembered AI-tab IDs &amp; URLs</td><td>Chrome <code>tabs</code> API; stored in <code>chrome.storage.local</code></td><td>Lets you paste into the correct AI tab later</td><td>Removed automatically when the tab closes or when you uninstall the Extension</td></tr>
+</tbody>
+</table>
+
+<h2>3. How do we use the information?</h2>
+<ul>
+<li>Provide the copy / summarise / paste features.</li>
+<li>Persist your Gemini settings.</li>
+<li>Remember which ChatGPT / Claude / Perplexity tab to target.</li>
+</ul>
+
+<h2>4. Sharing of information</h2>
+<p>We share <strong>no</strong> data with any server or third-party service.  
+If you use the Gemini feature, your browser sends the conversation text to Google’s Gemini API over HTTPS; that request is subject to Google’s Privacy Policy.</p>
+
+<h2>5. Security</h2>
+<ul>
+<li>All Gemini traffic uses HTTPS (TLS 1.2+).</li>
+<li>No remote code is executed; all injected scripts are bundled in the extension.</li>
+<li>Data stored via <code>chrome.storage.*</code> is sandboxed by Chrome; sync data is encrypted in transit and at rest.</li>
+</ul>
+
+<h2>6. Your choices</h2>
+<ul>
+<li>Press <em>Clear</em> to remove copied text.</li>
+<li>Edit or delete your Gemini key in the in-panel Settings drawer.</li>
+<li>Disable or remove the Extension at any time via <code>chrome://extensions</code>.</li>
+</ul>
+
+<h2>7. Changes</h2>
+<p>We’ll update this page and the Chrome Web Store listing before any change that affects how data is handled.</p>
+
+<h2>8. Contact</h2>
+<p>Questions? Email us at <a href="mailto:privacy@chat-copier.dev">privacy@chat-copier.dev</a>.</p>
+
+<footer>© 2025 Aryan Seth | Built with GitHub Pages</footer>
+</body>
+</html>
