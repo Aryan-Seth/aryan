@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog | Aryan Seth</title>
-  <link rel="stylesheet" href="/stylesheet.css">
+  <link rel="stylesheet" href="../stylesheet.css">
 </head>
 <body>
   <main class="page">
-    <p><a href="/">&larr; Back to home</a></p>
+    <p><a href="../">&larr; Back to home</a></p>
     <h1 class="section-title">Blog</h1>
     <div id="blog-archive-list" class="dynamic-list">
       <p class="muted">Loading posts...</p>
@@ -34,7 +34,7 @@
     async function renderArchive() {
       const container = document.getElementById("blog-archive-list");
       try {
-        const response = await fetch("/data/blog-index.json", { cache: "no-store" });
+        const response = await fetch("../data/blog-index.json", { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const data = await response.json();
@@ -49,7 +49,7 @@
           .map((post) => `
             <article class="list-item">
               <p class="item-meta">${escapeHtml(formatDate(post.date))}</p>
-              <h2 class="item-title"><a href="${escapeHtml(post.url)}">${escapeHtml(post.title)}</a></h2>
+              <h2 class="item-title"><a href="${escapeHtml(post.slug)}/">${escapeHtml(post.title)}</a></h2>
               <p>${escapeHtml(post.summary)}</p>
             </article>
           `)

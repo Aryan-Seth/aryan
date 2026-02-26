@@ -150,7 +150,7 @@ async function build() {
       slug,
       date: String(date).trim(),
       summary: String(summary).trim(),
-      url: `/blog/${slug}/`
+      url: `blog/${slug}/`
     });
   }
 

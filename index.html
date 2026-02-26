@@ -180,7 +180,7 @@
           .map((post) => `
             <article class="list-item">
               <p class="item-meta">${escapeHtml(formatDate(post.date))}</p>
-              <h3 class="item-title"><a href="${escapeHtml(post.url)}">${escapeHtml(post.title)}</a></h3>
+              <h3 class="item-title"><a href="blog/${escapeHtml(post.slug)}/">${escapeHtml(post.title)}</a></h3>
               <p>${escapeHtml(post.summary)}</p>
             </article>
           `)

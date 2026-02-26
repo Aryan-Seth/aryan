@@ -6,14 +6,14 @@
       "slug": "first-lab-notes",
       "date": "2026-02-20",
       "summary": "A short write-up of what worked, what failed, and what changed next.",
-      "url": "/blog/first-lab-notes/"
+      "url": "blog/first-lab-notes/"
     },
     {
       "title": "Reading log: causal bandits",
       "slug": "reading-log",
       "date": "2026-02-10",
       "summary": "Personal notes on a few papers and one practical takeaway for implementation.",
-      "url": "/blog/reading-log/"
+      "url": "blog/reading-log/"
     }
   ]
 }
