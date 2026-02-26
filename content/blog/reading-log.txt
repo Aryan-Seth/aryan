@@ -1,0 +1,10 @@
+---
+title: "Reading log: causal bandits"
+date: "2026-02-10"
+summary: "Personal notes on a few papers and one practical takeaway for implementation."
+---
+I reviewed two papers on structured exploration and information sharing.
+
+Main takeaway: assumptions are often hidden in reward modeling choices.
+
+Next step for me is to benchmark the same setting under one simpler baseline first.

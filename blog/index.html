@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Aryan Seth</title>
+  <link rel="stylesheet" href="/stylesheet.css">
+</head>
+<body>
+  <main class="page">
+    <p><a href="/">&larr; Back to home</a></p>
+    <h1 class="section-title">Blog</h1>
+    <div id="blog-archive-list" class="dynamic-list">
+      <p class="muted">Loading posts...</p>
+    </div>
+  </main>
+
+  <script>
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function formatDate(dateString) {
+      const date = new Date(`${dateString}T00:00:00`);
+      if (Number.isNaN(date.getTime())) return dateString;
+      return date.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+    }
+
+    async function renderArchive() {
+      const container = document.getElementById("blog-archive-list");
+      try {
+        const response = await fetch("/data/blog-index.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        const posts = Array.isArray(data.posts) ? data.posts : [];
+
+        if (posts.length === 0) {
+          container.innerHTML = '<p class="muted">No posts yet.</p>';
+          return;
+        }
+
+        container.innerHTML = posts
+          .map((post) => `
+            <article class="list-item">
+              <p class="item-meta">${escapeHtml(formatDate(post.date))}</p>
+              <h2 class="item-title"><a href="${escapeHtml(post.url)}">${escapeHtml(post.title)}</a></h2>
+              <p>${escapeHtml(post.summary)}</p>
+            </article>
+          `)
+          .join("");
+      } catch {
+        container.innerHTML = '<p class="muted">Could not load blog archive right now.</p>';
+      }
+    }
+
+    renderArchive();
+  </script>
+</body>
+</html>
